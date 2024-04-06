@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "title": "Spaghetti Carbonara",
+        "ingredients": [
+            "200g spaghetti",
+            "100g pancetta or guanciale, diced",
+            "2 large eggs",
+            "50g grated pecorino cheese",
+            "Salt and black pepper to taste"
+        ],
+        "instructions": [
+            "Boil spaghetti in salted water until al dente.",
+            "In a separate pan, fry pancetta until crispy.",
+            "In a bowl, whisk together eggs, pecorino cheese, salt, and pepper.",
+            "Drain spaghetti and combine with pancetta.",
+            "Quickly stir in the egg mixture to coat the spaghetti. The heat from the pasta will cook the eggs and create a creamy sauce."
+        ],
+        "cookingTime": "20 minutes"
+    },
+    {
+        "id": 2,
+        "title": "Chicken Stir Fry",
+        "ingredients": [
+            "2 boneless, skinless chicken breasts, sliced",
+            "1 red bell pepper, sliced",
+            "1 green bell pepper, sliced",
+            "1 medium onion, sliced",
+            "2 cloves garlic, minced",
+            "2 tbsp soy sauce",
+            "1 tbsp sesame oil",
+            "Salt and pepper to taste"
+        ],
+        "instructions": [
+            "In a wok or large skillet, heat sesame oil over medium-high heat.",
+            "Add minced garlic and sliced onions, sauté until fragrant.",
+            "Add sliced chicken breasts, cook until browned.",
+            "Add sliced bell peppers, continue to cook until vegetables are tender-crisp.",
+            "Stir in soy sauce, salt, and pepper.",
+            "Serve hot with rice or noodles."
+        ],
+        "cookingTime": "30 minutes"
+    },
+    {
+        "id": 3,
+        "title": "Chocolate Chip Cookies",
+        "ingredients": [
+            "1 cup (2 sticks) unsalted butter, softened",
+            "3/4 cup granulated sugar",
+            "3/4 cup packed brown sugar",
+            "1 teaspoon vanilla extract",
+            "2 large eggs",
+            "2 1/4 cups all-purpose flour",
+            "1 teaspoon baking soda",
+            "1/2 teaspoon salt",
+            "2 cups semisweet chocolate chips"
+        ],
+        "instructions": [
+            "Preheat oven to 375°F (190°C).",
+            "In a large bowl, cream together butter, granulated sugar, and brown sugar until smooth.",
+            "Beat in vanilla extract and eggs, one at a time.",
+            "Combine flour, baking soda, and salt; gradually add to the creamed mixture.",
+            "Stir in chocolate chips.",
+            "Drop by rounded tablespoonfuls onto ungreased baking sheets.",
+            "Bake for 9 to 11 minutes or until golden brown.",
+            "Cool on baking sheets for 2 minutes; remove to wire racks to cool completely."
+        ],
+        "cookingTime": "25 minutes"
+    }
+]
