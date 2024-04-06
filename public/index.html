@@ -3,8 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Recipes</title>
 </head>
-<body>
+<body style="margin: 20px;">
+
+<h1>Recipes</h1>
+
+<table class="table table-info table-hover" id="recipeTable" border="1">
+    <thead>
+        <tr>
+            <th >Title</th>
+            <th>Ingredients</th>
+            <th >Instructions</th>
+            <th >Cooking Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+<h2>Add New Recipe</h2>
+
+<form id="addRecipeForm" class="mt-4">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="form-group">
+        <label for="ingredients">Ingredients:</label>
+        <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="instructions">Instructions:</label>
+        <textarea class="form-control" id="instructions" name="instructions" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="cookingTime">Cooking Time:</label>
+        <input type="text" class="form-control" id="cookingTime" name="cookingTime" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Recipe</button>
+</form>
+
+<script src="scripts.js"></script>
+
 </body>
 </html>

@@ -1,35 +1,6 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import Recipe from "./models/recipe.js";
+import { connectDB, closeConnection } from "./models/recipe.js";
 
-dotenv.config();
-
-// Connection URI with database name and collection name
-const uri = process.env.CONECTION_URL;
-
-// Suppress DeprecationWarning for strictQuery
-mongoose.set('strictQuery', false);
-
-// Define schema for recipes
-const recipeSchema = new mongoose.Schema({
-    id: Number,
-    title: String,
-    ingredients: [String],
-    instructions: [String],
-    cookingTime: String
-}, { collection: 'recipes' }); // Specify the collection name
-
-// Create a model based on the schema
-const Recipe = mongoose.model('Recipe', recipeSchema);
-
-// Connect to MongoDB
-const connectDB = async () => {
-    try {
-        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log('Connected to MongoDB');
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-    }
-};
 
 
 
@@ -82,12 +53,6 @@ const deleteRecipe = async (id) => {
     } catch (error) {
         console.error('Error deleting recipe:', error);
     }
-};
-
-// Close MongoDB connection
-const closeConnection = async () => {
-    await mongoose.connection.close();
-    console.log('Disconnected from MongoDB');
 };
 
 export {

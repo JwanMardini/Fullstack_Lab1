@@ -9,12 +9,14 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json()); // Middleware to parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded requests
+app.use(express.static('public')); // Serve static files from the 'public' directory
+
 
 app.get('/api/recipes', async (req, res) => {
     try {
         await connectDB(); // Connect to MongoDB
         const recipes = await getRecipes(); // Retrieve recipes from database
-        res.json({ success: true, data: recipes }); // Send retrieved recipes as JSON response
+        res.json(recipes); // Send retrieved recipes as JSON response
     } catch (error) {
         console.error('Error retrieving recipes:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
