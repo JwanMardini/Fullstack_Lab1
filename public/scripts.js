@@ -17,18 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
         data.forEach(recipe => {
             var row = `
                 <tr>
-                    <td class="table-dark">${recipe.title}</td>
-                    <td class="table-dark">${recipe.ingredients.toString()}</td>
-                    <td class="table-dark">${recipe.instructions.toString()}</td>
-                    <td class="table-dark">${recipe.cookingTime}</td>
-                    <td class="table-dark">
-                        <button class="btn btn-dark"onclick="editRecipe(${recipe.id})">Update</button>
-                        <button class="btn btn-dark" onclick="deleteRecipe(${recipe.id})">Delete</button>
-                    </td>
-                </tr>
+                <td class="table-cell">${recipe.title}</td>
+                <td class="table-cell">${recipe.ingredients.join(', ')}</td>
+                <td class="table-cell">${recipe.instructions.join('. ')}</td>
+                <td class="table-cell">${recipe.cookingTime}</td>
+                <td class="table-cell">
+                    <button class="btn btn-primary" onclick="editRecipe(${recipe.id})">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteRecipe(${recipe.id})">Delete</button>
+                </td>
+            </tr>
+        
             `;
             tableBody.innerHTML += row;
         } )
+
+        
 
     })
 

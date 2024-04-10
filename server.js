@@ -16,7 +16,7 @@ app.get('/api/recipes', async (req, res) => {
     try {
         await connectDB(); // Connect to MongoDB
         const recipes = await getRecipes(); // Retrieve recipes from database
-        res.json(recipes); // Send retrieved recipes as JSON response
+        res.status(200).json(recipes); // Send retrieved recipes as JSON response
     } catch (error) {
         console.error('Error retrieving recipes:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
@@ -31,7 +31,7 @@ app.get('/api/recipes/:title', async (req, res) => {
         await connectDB(); // Connect to MongoDB
         const recipe = await getRecipeByTitle(title); // Retrieve recipe by title from database
         if (recipe) {
-            res.json({ success: true, data: recipe });
+            res.status(200).json({ success: true, data: recipe });
         } else {
             res.status(404).json({ success: false, error: 'Recipe not found' });
         }
@@ -48,7 +48,7 @@ app.post('/api/recipes', async (req, res) => {
     try {
         await connectDB(); // Connect to MongoDB
         await insertRecipe(recipe); // Insert recipe into database
-        res.json({ success: true, message: 'Recipe added successfully' }); // Send success response
+        res.status(201).json({ success: true, message: 'Recipe added successfully' }); // Send success response
     } catch (error) {
         console.error('Error adding recipe:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });

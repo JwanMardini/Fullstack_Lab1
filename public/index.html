@@ -4,53 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Add a separate CSS file for styling -->
 </head>
-<body style="margin: 20px;">
+<body>
 
-<h1>Recipes</h1>
+<div class="container">
+    <header>
+        <h1>Recipes</h1>
+    </header>
 
-<table id="recipeTable" border="1">
-    <thead>
-        <tr>
-            <th >Title</th>
-            <th>Ingredients</th>
-            <th >Instructions</th>
-            <th >Cooking Time</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-</table>
+    <section class="recipe-list">
+        <h2>Recipe List</h2>
+        <table id="recipeTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Ingredients</th>
+                    <th>Instructions</th>
+                    <th>Cooking Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Recipes will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
 
-<h2>Add New Recipe</h2>
+    <section class="add-recipe">
+        <h2>Add New Recipe</h2>
+        <form id="addRecipeForm">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
 
-<form id="addRecipeForm" class="mt-4">
-    <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-    </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+            </div>
 
-    <div >
-        <label for="ingredients">Ingredients:</label>
-        <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
-    </div>
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" name="instructions" rows="4" required></textarea>
+            </div>
 
-    <div >
-        <label for="instructions">Instructions:</label>
-        <textarea  id="instructions" name="instructions" rows="4" required></textarea>
-    </div>
+            <div class="form-group">
+                <label for="cookingTime">Cooking Time:</label>
+                <input type="text" id="cookingTime" name="cookingTime" required>
+            </div>
 
-    <div>
-        <label for="cookingTime">Cooking Time:</label>
-        <input type="text"  id="cookingTime" name="cookingTime" required>
-    </div>
-
-    <button type="submit" >Add Recipe</button>
-</form>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </section>
+</div>
 
 <script src="scripts.js"></script>
-
 </body>
 </html>
