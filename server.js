@@ -77,7 +77,7 @@ app.put('/api/recipes/:id', async (req, res) => {
 });
 
 app.delete('/api/recipes/:id', async (req, res) => {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     try {
         await connectDB(); // Connect to MongoDB
         await deleteRecipe(id); // Delete recipe from database
