@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cookingTime: document.getElementById('cookingTime').value
         };
         addNewRecipe(formData);
+
+        location.reload();
     });
 
 
@@ -160,7 +162,7 @@ function addNewRecipe(formData){
     .then(data => {
         let tableBody = document.querySelector('#recipeTable tbody');
         let row = `
-            <tr>
+            <tr data-id="${recipe._id} >
                 <td class="table-cell">${data.title}</td>
                 <td class="table-cell">${data.ingredients.join(', ')}</td>
                 <td class="table-cell">${data.instructions.join('. ')}</td>
@@ -173,7 +175,6 @@ function addNewRecipe(formData){
         `;
         tableBody.innerHTML += row;
 
-        location.reload();
     })
     .catch(error => console.error('Error adding recipe:', error));
 }
