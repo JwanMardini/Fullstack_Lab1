@@ -36,8 +36,6 @@ app.get('/api/recipes/:title', async (req, res) => {
     } catch (error) {
         console.error('Error retrieving recipe by title:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
-    } finally {
-        await closeConnection(); // Close MongoDB connection
     }
 });
 
