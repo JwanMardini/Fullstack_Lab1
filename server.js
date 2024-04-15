@@ -11,24 +11,22 @@ app.use(express.json()); // Middleware to parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded requests
 app.use(express.static('public')); // Serve static files from the 'public' directory
 
+connectDB(); // Connect to MongoDB
+
 
 app.get('/api/recipes', async (req, res) => {
     try {
-        await connectDB(); // Connect to MongoDB
         const recipes = await getRecipes(); // Retrieve recipes from database
         res.status(200).json(recipes); // Send retrieved recipes as JSON response
     } catch (error) {
         console.error('Error retrieving recipes:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
-    } finally {
-        await closeConnection(); // Close MongoDB connection
     }
 });
 
 app.get('/api/recipes/:title', async (req, res) => {
     const title = req.params.title;
     try {
-        await connectDB(); // Connect to MongoDB
         const recipe = await getRecipeByTitle(title); // Retrieve recipe by title from database
         if (recipe) {
             res.status(200).json({ success: true, data: recipe });
@@ -46,22 +44,18 @@ app.get('/api/recipes/:title', async (req, res) => {
 app.post('/api/recipes', async (req, res) => {
     const recipe = req.body;
     try {
-        await connectDB(); // Connect to MongoDB
         await insertRecipe(recipe); // Insert recipe into database
         res.status(201).json({ success: true, message: 'Recipe added successfully' }); // Send success response
     } catch (error) {
         console.error('Error adding recipe:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
-    } finally {
-        await closeConnection(); // Close MongoDB connection
-    }
+    } 
 });
 
 app.put('/api/recipes/:id', async (req, res) => {
     const id = req.params.id;
     const updatedRecipe = req.body;
     try {
-        await connectDB(); // Connect to MongoDB
         const recipeReturned = await updateRecipe(id, updatedRecipe); // Update recipe in database
         if (recipeReturned) {
             res.json({ success: true, data: recipeReturned });
@@ -71,22 +65,17 @@ app.put('/api/recipes/:id', async (req, res) => {
     } catch (error) {
         console.error('Error updating recipe:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
-    } finally {
-        await closeConnection(); // Close MongoDB connection
-    }
+    } 
 });
 
 app.delete('/api/recipes/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        await connectDB(); // Connect to MongoDB
         await deleteRecipe(id); // Delete recipe from database
         res.json({ success: true, message: 'Recipe deleted successfully' }); // Send success response
     } catch (error) {
         console.error('Error deleting recipe:', error);
         res.status(500).json({ success: false, error: 'Internal Server Error' });
-    } finally {
-        await closeConnection(); // Close MongoDB connection
     }
 });
 
